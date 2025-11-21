@@ -75,7 +75,7 @@ const events = [
 ];
 
 const categoryBackgrounds = {
-  Technical: "from-primary/20 via-background to-background",
+  Technical: "from-primary/10 via-background to-background",
   Cultural: "from-accent/20 via-background to-background",
   Literary: "from-chart-2/20 via-background to-background",
   All: "from-primary/10 via-accent/10 to-background",
@@ -92,10 +92,10 @@ export default function Events() {
     <div className="min-h-screen pt-24 pb-16 relative overflow-hidden">
       <div className={`absolute inset-0 bg-gradient-to-b ${categoryBackgrounds[selectedCategory]} transition-all duration-700`} />
       
-      <div className="absolute top-20 left-10 w-20 h-20 opacity-20 animate-float">
+      <div className="absolute top-0 left-10 w-20 h-20 opacity-20 animate-float">
         <img src={particle} alt="" className="w-full h-full" />
       </div>
-      <div className="absolute top-1/3 right-20 w-16 h-16 opacity-30 animate-float" style={{ animationDelay: "1s" }}>
+      <div className="absolute top-3/3 right-20 w-16 h-20 opacity-30 animate-float" style={{ animationDelay: "1s" }}>
         <img src={particle} alt="" className="w-full h-full" />
       </div>
       <div className="absolute bottom-1/4 left-1/4 w-24 h-24 opacity-15 animate-float" style={{ animationDelay: "2s" }}>

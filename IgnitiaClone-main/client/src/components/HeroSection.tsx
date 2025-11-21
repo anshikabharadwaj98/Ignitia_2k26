@@ -18,18 +18,18 @@ export default function HeroSection() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background" />
 
-      <div className="absolute top-20 left-10 w-16 h-16 opacity-40 animate-float">
+      {/* <div className="absolute top-20 left-10 w-16 h-16 opacity-40 animate-float">
         <img src={particle} alt="" className="w-full h-full" />
-      </div>
-      <div className="absolute top-40 right-20 w-12 h-12 opacity-50 animate-float" style={{ animationDelay: "1s" }}>
+      </div> */}
+      {/* <div className="absolute top-40 right-20 w-12 h-12 opacity-50 animate-float" style={{ animationDelay: "1s" }}>
         <img src={particle} alt="" className="w-full h-full" />
-      </div>
-      <div className="absolute bottom-32 left-1/4 w-10 h-10 opacity-30 animate-float" style={{ animationDelay: "2s" }}>
+      </div> */}
+      {/* <div className="absolute bottom-32 left-1/4 w-10 h-10 opacity-30 animate-float" style={{ animationDelay: "2s" }}>
         <img src={particle} alt="" className="w-full h-full" />
-      </div>
-      <div className="absolute bottom-20 right-1/3 w-14 h-14 opacity-40 animate-float" style={{ animationDelay: "0.5s" }}>
+      </div> */}
+      {/* <div className="absolute bottom-20 right-1/3 w-14 h-14 opacity-40 animate-float" style={{ animationDelay: "0.5s" }}>
         <img src={particle} alt="" className="w-full h-full" />
-      </div>
+      </div> */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 text-center">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[600px] md:h-[600px] opacity-20 pointer-events-none">
@@ -54,7 +54,7 @@ export default function HeroSection() {
             style={{ fontFamily: 'Orbitron, sans-serif' }}
             data-testid="text-hero-title"
           >
-            IGNITIA 2K25
+            IGNITIA 2K26
           </h1>
 
           <p className="text-lg md:text-2xl text-foreground/80 max-w-3xl mx-auto font-medium">
@@ -78,8 +78,8 @@ export default function HeroSection() {
             <Link href="/contact">
               <Button
                 size="lg"
-                variant="outline"
-                className="px-8 py-6 text-lg font-semibold rounded-full backdrop-blur-md bg-background/50"
+                // variant="outline"
+                className="px-8 py-6 text-lg font-semibold rounded-full"
                 data-testid="button-contact-us"
               >
                 Contact Us
