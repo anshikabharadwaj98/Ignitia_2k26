@@ -78,7 +78,7 @@ const categoryBackgrounds = {
   Technical: "from-primary/10 via-background to-background",
   Cultural: "from-accent/20 via-background to-background",
   Literary: "from-chart-2/20 via-background to-background",
-  All: "from-primary/10 via-accent/10 to-background",
+  All: "from-primary/10 via-background to-background",
 };
 
 export default function Events() {
