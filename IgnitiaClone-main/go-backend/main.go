@@ -43,6 +43,9 @@ func main() {
 	// Create Gin router
 	router := gin.Default()
 
+	// Serve static files from attached_assets directory
+	router.Static("/assets", "../attached_assets")
+
 	// Setup routes
 	routes.SetupRoutes(router)
 

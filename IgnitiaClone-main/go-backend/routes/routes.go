@@ -89,6 +89,12 @@ func SetupRoutes(router *gin.Engine) {
 			// Public team routes
 			public.GET("/teams", handlers.GetAllTeams)
 			public.GET("/teams/:id", handlers.GetTeam)
+
+			// Public gallery routes
+			public.GET("/gallery", handlers.GetAllGalleryImages)
+			public.GET("/gallery/:id", handlers.GetGalleryImage)
+			public.GET("/gallery/categories", handlers.GetGalleryCategories)
+			public.POST("/gallery/:id/like", handlers.LikeGalleryImage)
 		}
 	}
 }

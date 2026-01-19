@@ -6,65 +6,10 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Mail, ExternalLink, Sparkles, Loader2 } from "lucide-react";
+import NorthernLightsBackground from "@/components/NorthernLightsBackground";
 import type { Sponsor } from "@shared/schema";
 
 type SponsorTier = "all" | "title" | "platinum" | "gold" | "silver";
-
-const AnimatedBackground = () => {
-  const particles = useMemo(() => 
-    [...Array(60)].map((_, i) => ({
-      left: Math.random() * 100,
-      delay: Math.random() * 40,
-      duration: 35 + Math.random() * 15,
-      type: i % 3,
-    })),
-    []
-  );
-
-  return (
-    <div className="fixed inset-0 -z-10 overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-gradient-to-br from-[#1a0b2e] via-[#16213e] to-[#0f172a] bg-300% animate-gradient-shift"
-      />
-      
-      <div className="absolute inset-0 opacity-20">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-
-      {particles.map((particle, i) => (
-        <div
-          key={i}
-          className="absolute animate-float-up"
-          style={{
-            left: `${particle.left}%`,
-            animationDelay: `${particle.delay}s`,
-            animationDuration: `${particle.duration}s`,
-          }}
-        >
-          {particle.type === 0 ? (
-            <div className="w-2 h-2 bg-cyan-400/20 rounded-full blur-[1px]" />
-          ) : particle.type === 1 ? (
-            <div className="w-3 h-3 border border-cyan-400/20 rotate-45" />
-          ) : (
-            <svg width="12" height="14" viewBox="0 0 12 14" className="opacity-20">
-              <path d="M6 0 L12 7 L6 14 L0 7 Z" fill="rgba(0,255,255,0.2)" />
-            </svg>
-          )}
-        </div>
-      ))}
-
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "2.5s" }} />
-    </div>
-  );
-};
 
 const SponsorCard = ({ sponsor, tier }: { sponsor: Sponsor; tier: string }) => {
   const tierConfig = {
@@ -103,9 +48,10 @@ const SponsorCard = ({ sponsor, tier }: { sponsor: Sponsor; tier: string }) => {
   return (
     <Card 
       className={`
-        relative backdrop-blur-lg bg-white/5 border ${config.border} ${config.glow} ${config.hoverGlow}
+        relative backdrop-blur-lg glass border ${config.border} ${config.glow} ${config.hoverGlow}
         ${config.height} p-8 flex flex-col items-center justify-center gap-4
         transition-all duration-300 hover:-translate-y-1 group overflow-visible
+        bg-card/80
       `}
       data-testid={`card-sponsor-${sponsor.id}`}
     >
@@ -140,7 +86,7 @@ const SponsorCard = ({ sponsor, tier }: { sponsor: Sponsor; tier: string }) => {
 };
 
 const SponsorCardSkeleton = ({ height }: { height: string }) => (
-  <Card className={`backdrop-blur-lg bg-white/5 border border-white/10 ${height} p-8 flex flex-col items-center justify-center gap-4`}>
+  <Card className={`glass backdrop-blur-lg border border-primary/20 ${height} p-8 flex flex-col items-center justify-center gap-4`}>
     <Skeleton className="w-20 h-20 rounded-full bg-white/10" />
     <Skeleton className="w-32 h-6 bg-white/10" />
     <Skeleton className="w-24 h-4 bg-white/10" />
@@ -170,13 +116,15 @@ export default function SponsorsPage() {
 
   return (
     <div className="min-h-screen relative text-white">
-      <AnimatedBackground />
+      {/* Northern Lights Background */}
+      <NorthernLightsBackground />
       
       <div className="relative z-10">
         <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h1 
-              className={`text-5xl md:text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`}
+              className={`text-5xl md:text-6xl font-bold gradient-text mb-4 ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`}
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
               data-testid="text-page-title"
             >
               Our Sponsors
@@ -198,7 +146,7 @@ export default function SponsorsPage() {
                 onValueChange={(value) => setSelectedTier(value as SponsorTier)}
                 className="w-full max-w-2xl"
               >
-                <TabsList className="w-full backdrop-blur-lg bg-white/10 border border-white/20 p-1 h-auto flex-wrap gap-2">
+                <TabsList className="glass backdrop-blur-lg border border-primary/20 p-1 h-auto flex-wrap gap-2">
                   <TabsTrigger 
                     value="all" 
                     className="data-[state=active]:bg-white/20 data-[state=active]:text-white text-white/70 flex-1 min-w-[80px]"
@@ -370,7 +318,7 @@ export default function SponsorsPage() {
 
         <section className="max-w-4xl mx-auto px-4 pb-24">
           <Card 
-            className="backdrop-blur-lg bg-white/5 border border-white/10 p-12 text-center space-y-6"
+            className="glass backdrop-blur-lg border border-primary/20 p-12 text-center space-y-6"
             data-testid="card-cta"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 rounded-md" />

@@ -1,0 +1,46 @@
+{
+  "placeholderImages": [
+    {
+      "id": "1",
+      "title": "Rock Concert",
+      "description": "A rock band performing on a brightly lit stage.",
+      "imageUrl": "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYW5kJTIwb24lMjBzdGFnZXxlbnwwfHx8fDE3MTk0MjU4NTJ8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "rock concert"
+    },
+    {
+      "id": "2",
+      "title": "DJ at Work",
+      "description": "A DJ performing for a large crowd at a music festival.",
+      "imageUrl": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxiYW5kJTIwb24lMjBzdGFnZXxlbnwwfHx8fDE3MTk0MjU4NTJ8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "dj festival"
+    },
+    {
+      "id": "3",
+      "title": "Festival Crowd",
+      "description": "A large audience enjoying a concert at a music festival.",
+      "imageUrl": "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxiYW5kJTIwb24lMjBzdGFnZXxlbnwwfHx8fDE3MTk0MjU4NTJ8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "festival crowd"
+    },
+    {
+      "id": "4",
+      "title": "Singer on Stage",
+      "description": "A singer performing passionately into a microphone on stage.",
+      "imageUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiYW5kJTIwb24lMjBzdGFnZXxlbnwwfHx8fDE3MTk0MjU4NTJ8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "singer stage"
+    },
+    {
+      "id": "5",
+      "title": "Guitar Solo",
+      "description": "A guitarist playing a solo on an electric guitar on stage.",
+      "imageUrl": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxiYW5kJTIwb24lMjBzdGFnZXxlbnwwfHx8fDE3MTk0MjU4NTJ8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "guitar solo"
+    },
+    {
+      "id": "6",
+      "title": "Live Performance",
+      "description": "A band captivating the audience with their live performance.",
+      "imageUrl": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxiYW5kJTIwb24lMjBzdGFnZXxlbnwwfHx8fDE3MTk0MjU4NTJ8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "live performance"
+    }
+  ]
+}
