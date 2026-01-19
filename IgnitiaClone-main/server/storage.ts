@@ -52,7 +52,7 @@ private seedSponsors() {
 
     initialSponsors.forEach(sponsor => {
       const id = randomUUID();
-      this.sponsors.set(id, { ...sponsor, id });
+      this.sponsors.set(id, { ...sponsor, id, logoUrl: sponsor.logoUrl ?? null, websiteUrl: sponsor.websiteUrl ?? null });
     });
   }
 
@@ -89,7 +89,7 @@ async getAllSponsors(): Promise<Sponsor[]> {
 
   async createSponsor(insertSponsor: InsertSponsor): Promise<Sponsor> {
     const id = randomUUID();
-    const sponsor: Sponsor = { ...insertSponsor, id };
+    const sponsor: Sponsor = { ...insertSponsor, id, logoUrl: insertSponsor.logoUrl ?? null, websiteUrl: insertSponsor.websiteUrl ?? null };
     this.sponsors.set(id, sponsor);
     return sponsor;
   }
@@ -121,7 +121,7 @@ async getAllSponsors(): Promise<Sponsor[]> {
 
     initialTeams.forEach(team => {
       const id = randomUUID();
-      this.teams.set(id, { ...team, id });
+      this.teams.set(id, { ...team, id, imageUrl: team.imageUrl ?? null, bio: team.bio ?? null, socialLinks: team.socialLinks ?? null });
     });
   }
 
@@ -135,7 +135,7 @@ async getAllSponsors(): Promise<Sponsor[]> {
 
   async createTeam(insertTeam: InsertTeam): Promise<Team> {
     const id = randomUUID();
-    const team: Team = { ...insertTeam, id };
+    const team: Team = { ...insertTeam, id, imageUrl: insertTeam.imageUrl ?? null, bio: insertTeam.bio ?? null, socialLinks: insertTeam.socialLinks ?? null };
     this.teams.set(id, team);
     return team;
   }
