@@ -185,11 +185,14 @@
 //   );
 // }
 import { Link, useLocation } from "wouter";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles, User, LogOut, Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { SiYoutube, SiInstagram, SiFacebook, SiLinkedin } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
+import { useAuth } from "@/contexts/AuthContext";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -215,6 +218,7 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { user, isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -308,6 +312,73 @@ export default function Navigation() {
                 })}
               </div>
 
+              {/* Authentication Section */}
+              {isAuthenticated ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="flex items-center gap-2 hover:bg-primary/10">
+                      <Avatar className="w-8 h-8">
+                        <AvatarFallback className="bg-primary/20 text-primary">
+                          {user?.name?.charAt(0).toUpperCase() || 'U'}
+                        </AvatarFallback>
+                      </Avatar>
+                      <span className="hidden md:inline text-sm font-medium">
+                        {user?.name}
+                      </span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-56">
+                    <div className="px-2 py-1.5">
+                      <p className="text-sm font-medium">{user?.name}</p>
+                      <p className="text-xs text-muted-foreground">{user?.email}</p>
+                      {user?.is_admin && (
+                        <p className="text-xs text-primary font-medium">Admin</p>
+                      )}
+                    </div>
+                    <DropdownMenuSeparator />
+                    <Link href="/profile">
+                      <DropdownMenuItem className="cursor-pointer">
+                        <User className="w-4 h-4 mr-2" />
+                        Profile
+                      </DropdownMenuItem>
+                    </Link>
+                    {user?.is_admin && (
+                      <Link href="/admin">
+                        <DropdownMenuItem className="cursor-pointer">
+                          <Shield className="w-4 h-4 mr-2" />
+                          Admin Panel
+                        </DropdownMenuItem>
+                      </Link>
+                    )}
+                    <DropdownMenuItem className="cursor-pointer">
+                      <Settings className="w-4 h-4 mr-2" />
+                      Settings
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem 
+                      className="cursor-pointer text-red-600 focus:text-red-600"
+                      onClick={logout}
+                    >
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Sign Out
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <div className="hidden md:flex items-center gap-2">
+                  <Link href="/login">
+                    <Button variant="ghost" className="hover:bg-primary/10">
+                      Sign In
+                    </Button>
+                  </Link>
+                  <Link href="/signup">
+                    <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90">
+                      Sign Up
+                    </Button>
+                  </Link>
+                </div>
+              )}
+
               <Button
                 variant="ghost"
                 size="icon"
@@ -345,6 +416,86 @@ export default function Navigation() {
               })}
 
               <div className="pt-8 flex flex-col items-center gap-6">
+                {/* Authentication for mobile */}
+                {!isAuthenticated && (
+                  <div className="flex flex-col gap-3 w-full max-w-xs">
+                    <Link href="/login">
+                      <Button 
+                        variant="outline" 
+                        className="w-full border-primary/30 hover:bg-primary/10"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        Sign In
+                      </Button>
+                    </Link>
+                    <Link href="/signup">
+                      <Button 
+                        className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        Sign Up
+                      </Button>
+                    </Link>
+                  </div>
+                )}
+
+                {isAuthenticated && (
+                  <div className="flex flex-col items-center gap-4 w-full max-w-xs">
+                    <div className="flex items-center gap-3 p-4 rounded-lg bg-primary/10 w-full">
+                      <Avatar className="w-10 h-10">
+                        <AvatarFallback className="bg-primary/20 text-primary">
+                          {user?.name?.charAt(0).toUpperCase() || 'U'}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex-1 text-left">
+                        <p className="text-sm font-medium">{user?.name}</p>
+                        <p className="text-xs text-muted-foreground">{user?.email}</p>
+                        {user?.is_admin && (
+                          <p className="text-xs text-primary font-medium">Admin</p>
+                        )}
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col gap-2 w-full">
+                      <Link href="/profile">
+                        <Button 
+                          variant="outline" 
+                          className="w-full justify-start border-primary/30 hover:bg-primary/10"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          <User className="w-4 h-4 mr-2" />
+                          Profile
+                        </Button>
+                      </Link>
+                      
+                      {user?.is_admin && (
+                        <Link href="/admin">
+                          <Button 
+                            variant="outline" 
+                            className="w-full justify-start border-primary/30 hover:bg-primary/10"
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            <Shield className="w-4 h-4 mr-2" />
+                            Admin Panel
+                          </Button>
+                        </Link>
+                      )}
+                      
+                      <Button 
+                        variant="outline" 
+                        className="w-full justify-start border-red-200 text-red-600 hover:bg-red-50"
+                        onClick={() => {
+                          logout();
+                          setMenuOpen(false);
+                        }}
+                      >
+                        <LogOut className="w-4 h-4 mr-2" />
+                        Sign Out
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex items-center gap-3">
                   {socialLinks.map((social) => {
                     const Icon = social.icon;

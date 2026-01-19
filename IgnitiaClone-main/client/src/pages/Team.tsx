@@ -4,49 +4,49 @@ import teamFemale from "@assets/generated_images/Team_member_female_photo_b0df54
 
 const teamMembers = [
   {
-    name: "Rahul Sharma",
+    name: "ARYAN BAJPAI",
     role: "Festival Coordinator",
     department: "Computer Science",
     image: teamMale,
   },
   {
-    name: "Priya Patel",
+    name: "Sanskar Soni",
     role: "Technical Head",
     department: "Information Technology",
     image: teamFemale,
   },
   {
-    name: "Arjun Kumar",
+    name: "Shivam",
     role: "Cultural Secretary",
     department: "Electronics",
     image: teamMale,
   },
   {
-    name: "Sneha Reddy",
+    name: "Parth Aggarwal",
     role: "Sponsorship Lead",
     department: "Computer Science",
     image: teamFemale,
   },
   {
-    name: "Vikram Singh",
+    name: "Abhinav Sahu",
     role: "Event Manager",
     department: "Mechanical",
     image: teamMale,
   },
   {
-    name: "Ananya Gupta",
+    name: "Anshika Bharadwaj",
     role: "Marketing Head",
     department: "MBA",
     image: teamFemale,
   },
   {
-    name: "Karan Verma",
+    name: "Suryansh Sharan",
     role: "Logistics Coordinator",
     department: "Civil",
     image: teamMale,
   },
   {
-    name: "Ishita Jain",
+    name: "devanshi",
     role: "Design Lead",
     department: "Computer Science",
     image: teamFemale,
